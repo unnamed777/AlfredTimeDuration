@@ -5,6 +5,8 @@
 //  Created by Tyler on 6/26/14.
 //  Copyright (c) 2014 Tyler Eich. All rights reserved.
 //
+//  Modified by unnamed777 <andrey@neyman.tel>
+//
 
 #include <CoreFoundation/CoreFoundation.h>
 #include <regex.h>
@@ -63,7 +65,7 @@ int main(int argc, const char *argv[])
         return 0;
      }
 
-    int arglen = (int)strlen(argv[1]) + 1;
+    int arglen = (int)strlen(argv[1]);
     int pos = 0;
 
     long value = 0;
@@ -86,9 +88,7 @@ int main(int argc, const char *argv[])
              }
 
             operand = arg[i];
-
-            i += 2;
-            pos = i;
+            pos = i + 1;
          }
      }
 
@@ -177,10 +177,10 @@ char *substring(char *string, int position, int length)
         exit(EXIT_FAILURE);
      }
 
-    for (c = 0 ; c < position -1 ; c++)
+    for (c = 0; c < position; c++)
         string++;
 
-    for (c = 0 ; c < length ; c++)
+    for (c = 0; c < length; c++)
      {
         *(pointer+c) = *string;
         string++;
